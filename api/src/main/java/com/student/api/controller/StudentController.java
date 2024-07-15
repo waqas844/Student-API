@@ -1,7 +1,7 @@
-package com.student.controller;
+package com.student.api.controller;
 
-import com.student.entity.Student;
-import com.student.service.StudentService;
+import com.student.api.entity.Student;
+import com.student.api.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +12,13 @@ import java.util.List;
 @RequestMapping("/api/students")
 public class StudentController {
 
+
+    private final StudentService studentService;
+
     @Autowired
-    private StudentService studentService;
+    public StudentController(StudentService studentService){
+        this.studentService = studentService;
+    }
 
     @GetMapping
     public List<Student> getAllStudents() {

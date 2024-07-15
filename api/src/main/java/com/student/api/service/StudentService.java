@@ -1,7 +1,7 @@
-package com.student.service;
+package com.student.api.service;
 
-import com.student.entity.Student;
-import com.student.repo.StudentRepository;
+import com.student.api.entity.Student;
+import com.student.api.repo.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +11,12 @@ import java.util.Optional;
 @Service
 public class StudentService {
 
+    private final StudentRepository studentRepository;
+
     @Autowired
-    private StudentRepository studentRepository;
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     public List<Student> getAllStudents() {
         return studentRepository.findAll();

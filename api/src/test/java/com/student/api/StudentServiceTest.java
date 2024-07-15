@@ -1,8 +1,8 @@
 package com.student.api;
 
-import com.student.entity.Student;
-import com.student.repo.StudentRepository;
-import com.student.service.StudentService;
+import com.student.api.entity.Student;
+import com.student.api.repo.StudentRepository;
+import com.student.api.service.StudentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -16,7 +16,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class StudentServiceTest {
+class StudentServiceTest {
 
     @InjectMocks
     private StudentService studentService;
@@ -30,7 +30,7 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void testGetAllStudents() {
+    void testGetAllStudents() {
         Student student1 = new Student();
         student1.setId(1L);
         student1.setName("John Doe");
@@ -52,7 +52,7 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void testAddStudent() {
+    void testAddStudent() {
         Student student = new Student();
         student.setId(1L);
         student.setName("John Doe");
@@ -67,7 +67,7 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void testUpdateStudent() {
+    void testUpdateStudent() {
         Student student = new Student();
         student.setId(1L);
         student.setName("John Doe");
@@ -89,7 +89,7 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void testDeleteStudent() {
+    void testDeleteStudent() {
         studentService.deleteStudent(1L);
         verify(studentRepository, times(1)).deleteById(1L);
     }

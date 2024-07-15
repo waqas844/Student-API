@@ -1,4 +1,4 @@
-package com.student.entity;
+package com.student.api.entity;
 
 
 import jakarta.persistence.Entity;
